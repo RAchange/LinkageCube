@@ -11,7 +11,7 @@ public class MapGenerator {
 	public int brickWidth;
 	public int brickHeight;
 	private Random r = new Random();
-	final int nCube = 9;
+	final int nCube = 5;
 	private Dist[] dists = new Dist[nCube];
 	
 	private Color[] colorArr = {Color.BLACK, Color.WHITE, Color.DARK_GRAY, Color.BLUE, 
@@ -27,8 +27,8 @@ public class MapGenerator {
 		dis = new int[row][col][row][col];
 		
 		do {
-			for(int y=0; y<row; y++){
-		        for(int x=0; x<col; x++){;
+			for(int x=0; x<row; x++){
+		        for(int y=0; y<col; y++){;
 			        int i = r.nextInt(4);
 					if(i==0) {
 						map[x][y] = 2;

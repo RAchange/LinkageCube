@@ -24,7 +24,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener{
 	
 	
 	private MapGenerator map;
-	final int nCube = 9;
+	final int nCube = 5;
 	Random r = new Random();
 	
 	private Cube[] cubes = new Cube[9];
@@ -232,12 +232,11 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener{
 	    		nxtX = r.nextInt(map.map.length); 
 	    		nxtY = r.nextInt(map.map[0].length);
 	    		rate = r.nextInt(20);
-	    	}while(!(((rate!=0 && map.avail[nxtX][nxtY]==1 && 
+	    	}while(map.isDist[nxtX][nxtY] || (!((( map.avail[nxtX][nxtY]==1 && 
 	    			((map.up && nxtX-1>=0 && map.map[nxtX-1][nxtY]!=2) || 
 	    			(!map.up && nxtX+1<map.map.length && map.map[nxtX+1][nxtY]!=2)||
 	    			(map.left && nxtY-1>=0 && map.map[nxtX][nxtY-1]!=2) ||
-	    			(!map.left && nxtY+1<map.map[0].length && map.map[nxtX][nxtY+1]!=2))) || 
-	    			(rate==0 && map.avail[nxtX][nxtY]==2)) && map.map[nxtX][nxtY]!=2) && !map.isDist[nxtX][nxtY]);
+	    			(!map.left && nxtY+1<map.map[0].length && map.map[nxtX][nxtY+1]!=2)))))));
 	    	dists[i] = new Dist(i, nxtX, nxtY);
 			map.setDistance(i, nxtX, nxtY);
 	    }
